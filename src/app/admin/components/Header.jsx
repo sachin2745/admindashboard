@@ -1,12 +1,20 @@
+import { usePathname } from 'next/navigation';
 import React from 'react'
 import { HiMenuAlt2 } from "react-icons/hi";
 
 const Header = ({ isCollapsed, setIsCollapsed }) => {
+
+    const pathname = usePathname();
+
+    //PICKED A NAME FROM THE PATH
+    const parts = pathname.split("/"); 
+    const Result = parts[parts.length - 1];
+
     return (
         <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3">
 
             <nav className="max-w-[95rem] w-full mx-auto px-4 flex items-center  justify-between">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between capitalize">
                     <a
                         className="flex-none text-xl font-semibold focus:outline-none focus:opacity-80"
                         href="#"
@@ -32,7 +40,7 @@ const Header = ({ isCollapsed, setIsCollapsed }) => {
                                 <HiMenuAlt2 />
 
                             </button>
-                            Brand
+                            {Result}
                         </span>
                     </a>
 
