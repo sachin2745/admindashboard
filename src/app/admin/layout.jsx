@@ -28,7 +28,7 @@ export default function AdminLayout({ children }) {
                 <Header isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
                 {/* Main Content */}
-                <main className="p-4 bg-gray-200 min-h-screen w-full">
+                <main className="p-4 bg-gray-200 min-h-[605px] w-full">
                     {children}
                 </main>
                 <Footer />
