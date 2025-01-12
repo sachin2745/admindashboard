@@ -1,13 +1,44 @@
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import React from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import React, { useState } from 'react'
 
 const Sidebar = ({ isCollapsed }) => {
 
     const pathname = usePathname()
 
     console.log(pathname);
+    const router = useRouter();
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredOptions, setFilteredOptions] = useState([]);
 
+    // Sample data for demonstration
+    const options = [
+        { name: 'Dashboard', path: '/admin/dashboard' },
+        { name: 'Calendar', path: '/admin/calendar' },
+        { name: 'Users', path: '/admin/users' },
+        // Add more options as needed
+    ];
+
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+
+        // Filter options based on the input
+        if (value) {
+            const filtered = options.filter(option =>
+                option.name.toLowerCase().includes(value.toLowerCase())
+            );
+            setFilteredOptions(filtered);
+        } else {
+            setFilteredOptions([]);
+        }
+    };
+
+    const handleOptionClick = (path) => {
+        router.push(path);
+        setSearchTerm('');
+        setFilteredOptions([]);
+    };
     return (
         <>
 
@@ -64,8 +95,33 @@ const Sidebar = ({ isCollapsed }) => {
                         </div>
                     </header>
                     {/* End Header */}
+
                     {/* Body */}
                     <nav className="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
+                        {/* Search Bar */}
+                        <div className="relative p-4">
+                            <input
+                                type="text"
+                                placeholder="Search..."
+                                value={searchTerm}
+                                onChange={handleInputChange}
+                                className="w-full p-2 border border-gray-300 rounded"
+                            />
+                            {filteredOptions.length > 0 && (
+                                <ul className="absolute z-10  w-[87%] bg-white border border-gray-300 rounded mt-1">
+                                    {filteredOptions.map(option => (
+                                        <li
+                                            key={option.path}
+                                            onClick={() => handleOptionClick(option.path)}
+                                            className="p-2 hover:bg-gray-100 cursor-pointer"
+                                        >
+                                            {option.name}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                        {/* End Search Bar */}
                         <div
                             className="hs-accordion-group pb-0 px-2  w-full flex flex-col flex-wrap"
                             data-hs-accordion-always-open=""
