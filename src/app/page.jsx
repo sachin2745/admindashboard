@@ -1,19 +1,9 @@
 "use client";
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import confetti from 'canvas-confetti';
 
 const HomePage = () => {
-  // Function to run confetti animation
-  const handleConfetti = () => {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: {
-        y: 0.6,
-      },
-    });
-  };
+ 
 
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -25,14 +15,7 @@ const HomePage = () => {
             Link
           </Link>
         </p>
-        <button
-          id="hs-run-on-click-run-confetti"
-          className="py-2 px-6 inline-flex items-center gap-x-2 text-sm font-medium rounded  bg-white text-black  focus:outline-none  disabled:opacity-50 disabled:pointer-events-none mt-4"
-          type="button"
-          onClick={handleConfetti}
-        >
-          Omphoo 🎉
-        </button>
+        
       </div>
     </div>
   );

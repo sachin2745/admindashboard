@@ -35,8 +35,15 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Glass+Antiqua&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet" />
+       
         <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet"></link>
-        <script src="./assets/vendor/canvas-confetti/dist/confetti.browser.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.BUILDER_HYDRATION_OVERLAY = true;
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
