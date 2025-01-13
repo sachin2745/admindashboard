@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react'
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -11,18 +12,18 @@ const Header = ({ isCollapsed, setIsCollapsed }) => {
     const Result = parts[parts.length - 1];
 
     return (
-        <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3">
+        <header className="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-2 font-RedditSans">
 
-            <nav className="max-w-[95rem] w-full mx-auto px-4 flex items-center  justify-between">
+            <nav className=" w-full mx-auto px-4 flex items-center  justify-between">
                 <div className="flex items-center justify-between capitalize">
-                    <a
+                    <Link
                         className="flex-none text-xl font-semibold focus:outline-none focus:opacity-80"
-                        href="#"
+                        href={pathname}
                         aria-label="Brand"
                     >
-                        <span className="inline-flex items-center gap-x-2 text-xl font-semibold">
+                        <span className="inline-flex items-center gap-x-2 text-xl text-emerald-500 font-bold">
                             <button
-                                className=" hidden sm:block  p-2 text-black bg-gray-100 rounded-full shadow "
+                                className=" hidden sm:block  p-2 text-emerald-500 bg-dashGray rounded-full shadow "
                                 onClick={() => setIsCollapsed(!isCollapsed)}
                                 aria-label="Toggle Sidebar"
                             >
@@ -30,7 +31,7 @@ const Header = ({ isCollapsed, setIsCollapsed }) => {
                             </button>
                             <button
                                 type="button"
-                                className="block sm:hidden p-2  justify-center items-center  text-start bg-black  text-white text-sm font-medium rounded-full shadow  hover:bg-gray-950 focus:outline-none focus:bg-gray-900"
+                                className="block sm:hidden p-2  justify-center items-center  text-start bg-quaternary text-white text-sm font-medium rounded-full shadow  hover:bg-gray-950 focus:outline-none focus:bg-gray-900"
                                 aria-haspopup="dialog"
                                 aria-expanded="false"
                                 aria-controls="hs-sidebar-footer"
@@ -42,7 +43,7 @@ const Header = ({ isCollapsed, setIsCollapsed }) => {
                             </button>
                             {Result}
                         </span>
-                    </a>
+                    </Link>
 
                 </div>
                 <div className="overflow-hidden transition-all duration-300">

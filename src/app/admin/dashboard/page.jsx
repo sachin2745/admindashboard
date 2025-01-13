@@ -1,10 +1,11 @@
+import AdminLayout from "../Layout/adminLayout";
 
 const Dashboard = () => {
     return (
-        <div>
+        <AdminLayout>
             <h2 className="text-2xl font-bold">Dashboard</h2>
             <p>Welcome to the admin dashboard!</p>
-        </div>
+        </AdminLayout>
     );
 };
 

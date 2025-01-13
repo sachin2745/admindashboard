@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 
 export default function AdminLayout({ children }) {
     const [isCollapsed, setIsCollapsed] = useState(null);
@@ -28,7 +29,7 @@ export default function AdminLayout({ children }) {
                 <Header isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
                 {/* Main Content */}
-                <main className="p-4 bg-gray-200 min-h-[605px] w-full">
+                <main className="p-4 bg-gray-200 min-h-screen  w-full">
                     {children}
                 </main>
                 <Footer />

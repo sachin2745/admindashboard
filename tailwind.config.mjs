@@ -14,7 +14,8 @@ export default {
         tertiary: "#FFD541",
         quaternary: "#100C08",
         spaceblack: "#414A4C",
-
+        dashgreen: "#1BCFB4",
+        dashGray:"#F8F9FA",
       },
 
     },
@@ -22,6 +23,7 @@ export default {
       Oswald: ['Oswald', 'sans-serif'],
       Josefin_Sans: ['Josefin Sans', 'sans-serif'],
       Montserrat: ['Montserrat', 'sans-serif'],
+      RedditSans: ["Reddit Sans", 'serif'],
       Lilita_One: ['Lilita One', 'sans-serif'],
       Syne: ['Syne', 'sans-serif'],
       Allura: ['Allura', 'cursive'],

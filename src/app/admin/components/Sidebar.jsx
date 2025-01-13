@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import { TbLayoutDashboardFilled } from "react-icons/tb";
 
 const Sidebar = ({ isCollapsed }) => {
 
@@ -57,21 +58,20 @@ const Sidebar = ({ isCollapsed }) => {
                 tabIndex={-1}
                 aria-label="Sidebar"
             >
-                <div className="relative flex flex-col h-full max-h-full ">
+                <div className="relative flex flex-col h-full max-h-full font-RedditSans">
                     {/* Header */}
                     <header className="p-4 flex justify-between items-center gap-x-2">
-                        <a
-                            className="flex-none font-semibold text-xl text-black focus:outline-none focus:opacity-80"
-                            href="#"
-                            aria-label="Dashboard"
+                        <div
+                            className="flex items-center gap-1 font-bold text-xl text-quaternary "                           
                         >
-                            {!isCollapsed && <span className="ml-3">Dashboard</span>}
-                        </a>
+                            {!isCollapsed &&  <TbLayoutDashboardFilled />}
+                            {!isCollapsed && <span >Dashboard</span>}
+                        </div>
                         <div className="lg:hidden -me-2">
                             {/* Close Button */}
                             <button
                                 type="button"
-                                className="flex justify-center items-center gap-x-3 size-6 bg-white border border-gray-200 text-sm text-gray-600 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-100"
+                                className="flex justify-center items-center gap-x-3 size-6 bg-white border border-gray-200 text-sm text-gray-600 hover:bg-emerald-100  rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-emerald-100"
                                 data-hs-overlay="#hs-sidebar-footer"
                             >
                                 <svg
@@ -97,7 +97,7 @@ const Sidebar = ({ isCollapsed }) => {
                     {/* End Header */}
 
                     {/* Body */}
-                    <nav className="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
+                    <nav className="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-emerald-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
                         {/* Search Bar */}
                         <div className="relative p-4">
                             <input
@@ -113,7 +113,7 @@ const Sidebar = ({ isCollapsed }) => {
                                         <li
                                             key={option.path}
                                             onClick={() => handleOptionClick(option.path)}
-                                            className="p-2 hover:bg-gray-100 cursor-pointer"
+                                            className="p-2 hover:bg-emerald-100 cursor-pointer"
                                         >
                                             {option.name}
                                         </li>
@@ -129,11 +129,11 @@ const Sidebar = ({ isCollapsed }) => {
                             <ul className="space-y-1">
                                 <li>
                                     <Link
-                                        className={` ${pathname === '/admin/dashboard' ? 'bg-gray-200' : ''} flex items-center gap-x-3 py-2 px-2.5  text-sm text-gray-700 rounded-lg hover:bg-gray-100`}
+                                        className={` ${pathname === '/admin/dashboard' ? 'bg-emerald-200 ' : ''} flex items-center gap-x-3 py-2 px-2.5  text-sm text-quaternary rounded-lg hover:bg-emerald-100 hover:font-semibold`}
                                         href="/admin/dashboard"
                                     >
                                         <svg
-                                            className="size-4"
+                                            className="size-4 "
                                             xmlns="http://www.w3.org/2000/svg"
                                             width={24}
                                             height={24}
@@ -154,7 +154,7 @@ const Sidebar = ({ isCollapsed }) => {
                                 <li className="hs-accordion" id="users-accordion">
                                     <button
                                         type="button"
-                                        className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                        className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                         aria-expanded="true"
                                         aria-controls="users-accordion-collapse-1"
                                     >
@@ -218,7 +218,7 @@ const Sidebar = ({ isCollapsed }) => {
                                             <li className="hs-accordion" id="users-accordion-sub-1">
                                                 <button
                                                     type="button"
-                                                    className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                    className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                     aria-expanded="true"
                                                     aria-controls="users-accordion-sub-1-collapse-1"
                                                 >
@@ -261,7 +261,7 @@ const Sidebar = ({ isCollapsed }) => {
                                                     <ul className="pt-1 ps-2 space-y-1">
                                                         <li>
                                                             <a
-                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                                 href="#"
                                                             >
                                                                 Link 1
@@ -269,7 +269,7 @@ const Sidebar = ({ isCollapsed }) => {
                                                         </li>
                                                         <li>
                                                             <a
-                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                                 href="#"
                                                             >
                                                                 Link 2
@@ -277,7 +277,7 @@ const Sidebar = ({ isCollapsed }) => {
                                                         </li>
                                                         <li>
                                                             <a
-                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                                 href="#"
                                                             >
                                                                 Link 3
@@ -289,7 +289,7 @@ const Sidebar = ({ isCollapsed }) => {
                                             <li className="hs-accordion" id="users-accordion-sub-2">
                                                 <button
                                                     type="button"
-                                                    className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                    className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                     aria-expanded="true"
                                                     aria-controls="users-accordion-sub-2-collapse-1"
                                                 >
@@ -332,7 +332,7 @@ const Sidebar = ({ isCollapsed }) => {
                                                     <ul className="pt-1 ps-2 space-y-1">
                                                         <li>
                                                             <a
-                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                                 href="#"
                                                             >
                                                                 Link 1
@@ -340,7 +340,7 @@ const Sidebar = ({ isCollapsed }) => {
                                                         </li>
                                                         <li>
                                                             <a
-                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                                 href="#"
                                                             >
                                                                 Link 2
@@ -348,7 +348,7 @@ const Sidebar = ({ isCollapsed }) => {
                                                         </li>
                                                         <li>
                                                             <a
-                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                                className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                                 href="#"
                                                             >
                                                                 Link 3
@@ -363,7 +363,7 @@ const Sidebar = ({ isCollapsed }) => {
                                 <li className="hs-accordion" id="account-accordion">
                                     <button
                                         type="button"
-                                        className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                        className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                         aria-expanded="true"
                                         aria-controls="account-accordion-sub-1-collapse-1"
                                     >
@@ -430,7 +430,7 @@ const Sidebar = ({ isCollapsed }) => {
                                         <ul className="pt-1 ps-7 space-y-1">
                                             <li>
                                                 <a
-                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                     href="#"
                                                 >
                                                     Link 1
@@ -438,7 +438,7 @@ const Sidebar = ({ isCollapsed }) => {
                                             </li>
                                             <li>
                                                 <a
-                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                     href="#"
                                                 >
                                                     Link 2
@@ -446,7 +446,7 @@ const Sidebar = ({ isCollapsed }) => {
                                             </li>
                                             <li>
                                                 <a
-                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                     href="#"
                                                 >
                                                     Link 3
@@ -458,7 +458,7 @@ const Sidebar = ({ isCollapsed }) => {
                                 <li className="hs-accordion" id="projects-accordion">
                                     <button
                                         type="button"
-                                        className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                        className="hs-accordion-toggle w-full text-start flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                         aria-expanded="true"
                                         aria-controls="projects-accordion-sub-1-collapse-1"
                                     >
@@ -517,7 +517,7 @@ const Sidebar = ({ isCollapsed }) => {
                                         <ul className="pt-1 ps-7 space-y-1">
                                             <li>
                                                 <a
-                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                     href="#"
                                                 >
                                                     Link 1
@@ -525,7 +525,7 @@ const Sidebar = ({ isCollapsed }) => {
                                             </li>
                                             <li>
                                                 <a
-                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                     href="#"
                                                 >
                                                     Link 2
@@ -533,7 +533,7 @@ const Sidebar = ({ isCollapsed }) => {
                                             </li>
                                             <li>
                                                 <a
-                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                    className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-emerald-100 focus:outline-none focus:bg-emerald-100"
                                                     href="#"
                                                 >
                                                     Link 3
@@ -544,7 +544,7 @@ const Sidebar = ({ isCollapsed }) => {
                                 </li>
                                 <li>
                                     <Link
-                                        className={` ${pathname === '/admin/calendar' ? 'bg-gray-200' : ''} flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100`}
+                                        className={` ${pathname === '/admin/calendar' ? 'bg-emerald-200' : ''} flex items-center gap-x-3 py-2 px-2.5 text-sm text-quaternary rounded-lg hover:bg-emerald-100 hover:font-semibold`}
                                         href="/admin/calendar"
                                     >
                                         <svg
@@ -570,15 +570,13 @@ const Sidebar = ({ isCollapsed }) => {
                                             <path d="M12 18h.01" />
                                             <path d="M16 18h.01" />
                                         </svg>
-                                        Calendar{" "}
-                                        <span className="ms-auto py-0.5 px-1.5 inline-flex items-center gap-x-1.5 text-xs bg-gray-200 text-gray-800 rounded-full">
-                                            New
-                                        </span>
+                                        Calendar
+                                        
                                     </Link>
                                 </li>
                                 <li>
                                     <a
-                                        className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100"
+                                        className="flex items-center gap-x-3 py-2 px-2.5 text-sm text-quaternary rounded-lg hover:bg-emerald-100 hover:font-semibold"
                                         href="#"
                                     >
                                         <svg
